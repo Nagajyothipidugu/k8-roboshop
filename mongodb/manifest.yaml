@@ -25,5 +25,25 @@ spec:
         app: database
    spec: 
      containers:
-       - name: nginx
+       - name: mongodb
          image: jyothinaga/mongodb:v1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  namespace: roboshop
+  #service labels 
+  labels: 
+     component: mongodb
+     project: roboshop 
+     app: database
+spec: 
+  selector: 
+    component: mongodb
+    project: roboshop 
+    app: database 
+  ports: 
+   - protocol: TCP 
+     port:  27017 # Service Port
+     targetPort: 27017 # container port         
