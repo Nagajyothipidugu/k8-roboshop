@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+    name: mongodb
+    namespace: roboshop
+    # These are deployment labels
+    labels: 
+      component: mongodb
+      project: roboshop 
+      app: database
+spec: 
+ replicas: 1
+ # These are the labels replica set uses to create pod replicas,this should match pod labels
+ selector: 
+   matchLabels: 
+      component: mongodb
+      project: roboshop 
+      app: database
+ # This is Pod definition     
+ template: 
+   metadata: 
+     labels: 
+        component: mongodb
+        project: roboshop 
+        app: database
+   spec: 
+     containers:
+       - name: nginx
+         image: jyothinaga/mongodb:v1
