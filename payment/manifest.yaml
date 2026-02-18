@@ -20,7 +20,7 @@ metadata:
    name: payment
    namespace: roboshop
    labels: 
-     component: mysql
+     component: payment
      project: roboshop 
      tier: database
 type: Opaque     
