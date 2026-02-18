@@ -58,7 +58,7 @@ spec:
    spec: 
      containers:
        - name: payment
-         image: jyothinaga/payment:v1
+         image: joindevops/payment:v1
          envFrom : 
           - configMapRef: 
              name: payment
